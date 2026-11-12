@@ -76,7 +76,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
   <h2>How it works</h2>
   <div class="cards">
     <div class="card"><h3>01 · Choose Tickets</h3><p>Select how many lucky draw tickets (1 to 10) you want to book.</p></div>
-    <div class="card"><h3>02 · Secure Payment</h3><p>Scan dynamically generated UPI QR for exact amount, then enter your UTR.</p></div>
+    <div class="card"><h3>02 · Secure Payment</h3><p>Scan the QR code to pay exact amount, then enter your UTR.</p></div>
     <div class="card"><h3>03 · Win Big</h3><p>Receive your unique ticket code instantly confirmed!</p></div>
   </div>
 </section>
@@ -84,7 +84,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 <section id="register" class="section">
   <h2>Ticket Booking & Secure Payment</h2>
   <div class="panel">
-    <div class="notice"><b>Lucky Draw Registration.</b> Select your tickets, scan the exact amount QR code, enter your UTR, and submit your entry.</div>
+    <div class="notice"><b>Lucky Draw Registration.</b> Select your tickets, scan the QR code, enter your UTR, and submit your entry.</div>
     
     <form id="regform">
       <label>Full name</label><input type="text" id="fname" required maxlength="80" placeholder="Enter your full name">
@@ -112,11 +112,11 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
         </div>
 
         <div class="upi-qr-box">
-          <p style="margin:0 0 8px 0;color:var(--text);font-size:0.9rem;">Scan & Pay Exact Amount via any UPI App</p>
+          <p style="margin:0 0 8px 0;color:var(--text);font-size:0.9rem;">Scan & Pay via any UPI App</p>
           <div style="background:white;padding:10px;display:inline-block;border-radius:8px;">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=your-upi-id@okaxis&pn=Mobizone&am=21&cu=INR" alt="UPI QR Code" width="130" height="130" id="qrCodeImg">
+            <!-- DIRECT LOCAL QR.PNG REFERENCE -->
+            <img src="qr.png" alt="UPI QR Code" width="150" height="150" id="qrCodeImg" style="display:block;">
           </div>
-          <p style="margin:8px 0 0 0;font-size:0.85rem;color:var(--accent2)">UPI ID: <b>your-upi-id@okaxis</b></p>
         </div>
 
         <label style="margin-top:15px;">Enter UPI Transaction ID / UTR (After payment)</label>
@@ -189,9 +189,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 const ticketCountSelect = document.getElementById('ticketCount');
 const totalPriceEl = document.getElementById('totalPrice');
 const ticketSummaryEl = document.getElementById('ticketSummary');
-const qrCodeImg = document.getElementById('qrCodeImg');
 
-// Connected to your Apps Script Web App
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzi2yPOQHmur4mab9LnBStDZZ6ds8VcGEMrlYiP8k9iqgKsuKoVUM6cSsVm6wPRMS_m/exec';
 
 ticketCountSelect.addEventListener('change', () => {
@@ -199,9 +197,6 @@ ticketCountSelect.addEventListener('change', () => {
   const total = count * 21;
   totalPriceEl.textContent = '₹' + total;
   ticketSummaryEl.textContent = count + (count === 1 ? ' Ticket selected' : ' Tickets selected');
-  
-  const upiId = 'your-upi-id@okaxis'; // Update with your actual UPI ID
-  qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=${upiId}&pn=Mobizone&am=${total}&cu=INR`;
 });
 
 // Load Winners from localStorage
