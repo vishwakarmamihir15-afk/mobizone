@@ -132,9 +132,9 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
   </div>
 </section>
 
-<!-- ADMIN PANEL SECTION (Hidden by default, accessible via footer secret login) -->
+<!-- ADMIN PANEL SECTION -->
 <section id="adminSection" class="section hidden">
-  <h2>Admin Panel — Database & Winner Control</h2>
+  <h2>Admin Panel — Control Center</h2>
   <div class="panel" style="border-color:var(--accent2)">
     <div id="adminLoginBox">
       <p style="color:var(--text)">Enter admin password to access control panel:</p>
@@ -145,9 +145,9 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
     
     <div id="adminDashboard" class="hidden">
       <h3 style="color:var(--accent2);margin-top:0">Welcome Admin (Mihir)</h3>
-      <p>Total registrations collected: <b id="totalCount">0</b></p>
+      <p style="color:var(--muted)">All bookings are safely stored live in your Google Sheet database!</p>
       <div style="margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn" style="background:var(--accent2);color:#0b1020;" onclick="downloadExcel()">📥 Download All Bookings (Excel)</button>
+        <a href="https://docs.google.com/spreadsheets/d/19zLc5ZqhPzMWHBijPrfN0KrezImd-qW2L7HHPL1SKw77tifF9pYcMFp/edit" target="_blank" class="btn" style="background:var(--accent2);color:#0b1020;text-decoration:none;display:inline-block;line-height:normal;">📊 Open Google Sheet (View All Data)</a>
         <button class="btn secondary" onclick="logoutAdmin()">Logout</button>
       </div>
 
@@ -191,27 +191,26 @@ const totalPriceEl = document.getElementById('totalPrice');
 const ticketSummaryEl = document.getElementById('ticketSummary');
 const qrCodeImg = document.getElementById('qrCodeImg');
 
-// Dynamic QR code generation based on selected ticket count / amount
+// Connected to your Apps Script Web App
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzi2yPOQHmur4mab9LnBStDZZ6ds8VcGEMrlYiP8k9iqgKsuKoVUM6cSsVm6wPRMS_m/exec';
+
 ticketCountSelect.addEventListener('change', () => {
   const count = parseInt(ticketCountSelect.value);
   const total = count * 21;
   totalPriceEl.textContent = '₹' + total;
   ticketSummaryEl.textContent = count + (count === 1 ? ' Ticket selected' : ' Tickets selected');
   
-  // Update QR code dynamically with the exact total amount
-  const upiId = 'your-upi-id@okaxis'; // Change this to your actual UPI ID if needed
+  const upiId = 'your-upi-id@okaxis'; // Update with your actual UPI ID
   qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=${upiId}&pn=Mobizone&am=${total}&cu=INR`;
 });
 
-// Load Bookings & Winners from localStorage
-let bookings = JSON.parse(localStorage.getItem('mobizone_secure_bookings')) || [];
+// Load Winners from localStorage
 let winners = JSON.parse(localStorage.getItem('mobizone_winners')) || [
   { name: "Amit Verma", prize: "iPhone 15" },
   { name: "Pooja Singh", prize: "₹25,000 Cash" },
   { name: "Rohit Kumar", prize: "Smart Watch" }
 ];
 
-// Initialize Ticker Display
 function updateTicker() {
   const tickerEl = document.getElementById('tickerText');
   if (winners.length === 0) {
@@ -223,7 +222,7 @@ function updateTicker() {
 }
 updateTicker();
 
-// Booking Form Submit
+// Booking Form Submit - Send to Google Sheet Globally
 document.getElementById('regform').addEventListener('submit', e => {
   e.preventDefault();
   const submitBtn = document.getElementById('submitBtn');
@@ -238,7 +237,7 @@ document.getElementById('regform').addEventListener('submit', e => {
   const ticketCode = 'MOBI-' + Math.floor(100000 + Math.random() * 900000);
   const dateStr = new Date().toLocaleString();
 
-  bookings.push({
+  const formData = {
     Date: dateStr,
     Name: name,
     Email: email,
@@ -247,24 +246,36 @@ document.getElementById('regform').addEventListener('submit', e => {
     Amount: totalAmount,
     UTR: utr,
     TicketCode: ticketCode
-  });
+  };
 
-  localStorage.setItem('mobizone_secure_bookings', JSON.stringify(bookings));
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting entry...';
 
-  msgBox.innerHTML = `🎉 <b>Booking Confirmed Successfully!</b><br>
-  Name: <b>${name}</b><br>
-  Tickets Booked: <b>${tickets} (₹${totalAmount})</b><br>
-  Transaction UTR: <b>${utr}</b><br>
-  Your Unique Ticket Code: <b style="color:var(--text);font-size:1.1rem;">${ticketCode}</b><br>
-  <small style="color:var(--muted)">Your entry has been securely recorded.</small>`;
-  msgBox.classList.remove('hidden');
-  submitBtn.textContent = 'Booking Confirmed!';
-  
-  setTimeout(() => {
-    document.getElementById('regform').reset();
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  }).then(() => {
+    msgBox.innerHTML = `🎉 <b>Booking Confirmed Successfully!</b><br>
+    Name: <b>${name}</b><br>
+    Tickets Booked: <b>${tickets} (₹${totalAmount})</b><br>
+    Transaction UTR: <b>${utr}</b><br>
+    Your Unique Ticket Code: <b style="color:var(--text);font-size:1.1rem;">${ticketCode}</b><br>
+    <small style="color:var(--muted)">Your entry has been securely recorded in the database.</small>`;
+    msgBox.classList.remove('hidden');
+    submitBtn.textContent = 'Booking Confirmed!';
+    
+    setTimeout(() => {
+      document.getElementById('regform').reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Verify & Submit Booking';
+    }, 4000);
+  }).catch(err => {
+    alert('Error submitting booking. Please try again.');
     submitBtn.disabled = false;
     submitBtn.textContent = 'Verify & Submit Booking';
-  }, 4000);
+  });
 });
 
 // Admin Panel Functions
@@ -279,7 +290,6 @@ function loginAdmin() {
   if (pass === 'Varanasi22177') {
     document.getElementById('adminLoginBox').classList.add('hidden');
     document.getElementById('adminDashboard').classList.remove('hidden');
-    document.getElementById('totalCount').textContent = bookings.length;
     document.getElementById('adminError').classList.add('hidden');
     renderWinnersList();
   } else {
@@ -292,17 +302,6 @@ function logoutAdmin() {
   document.getElementById('adminLoginBox').classList.remove('hidden');
   document.getElementById('adminPass').value = '';
   document.getElementById('adminSection').classList.add('hidden');
-}
-
-function downloadExcel() {
-  if (bookings.length === 0) {
-    alert('No registrations found yet!');
-    return;
-  }
-  const worksheet = XLSX.utils.json_to_sheet(bookings);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, "Bookings");
-  XLSX.writeFile(workbook, "Mobizone_Database_Export.xlsx");
 }
 
 // Winner Management Functions
