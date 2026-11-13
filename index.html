@@ -57,12 +57,12 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 
 <section class="hero">
   <div>
-    <span class="tag">VERIFIED LUCKY DRAW • 100% FAIR PLAY</span>
+    <span class="tag">VERIFIED LUCKY DRAW • 1 REF = 1 FREE TICKET</span>
     <h1>Secure your golden ticket.<br><span>Grab your chance to win!</span></h1>
     
-    <!-- CUSTOM BOLD CATCHY LINE -->
-    <p style="font-size:1.15rem;color:var(--text);font-weight:700;background:linear-gradient(90deg,#7c5cff22,transparent);padding:10px 14px;border-left:4px solid var(--accent2);border-radius:4px;margin-bottom:20px;">
-      🔥 Multiple Tickets Make Your Chances More to Win! Grab Your Lucky Entries Before Slots Close!
+    <!-- HIGH-CONVERSION REFERRAL BANNER -->
+    <p style="font-size:1.15rem;color:var(--text);font-weight:700;background:linear-gradient(90deg,#7c5cff33,transparent);padding:12px 16px;border-left:4px solid var(--accent2);border-radius:4px;margin-bottom:20px;line-height:1.5;">
+      🚀 <b>MEGA OFFER:</b> Refer 1 Friend = Get 1 Ticket Absolutely FREE! Share your unique ticket code with friends and stack unlimited free entries to double your winning chances!
     </p>
 
     <p>Welcome to Mobizone Challenge — India's trusted lucky draw platform. Book your tickets for just <strong>₹21 each</strong> and stand a chance to win the brand new iPhone!</p>
@@ -78,16 +78,16 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 
 <div class="stats">
   <div class="stat"><strong>₹21</strong><span>Per ticket price</span></div>
-  <div class="stat"><strong>10</strong><span>Max tickets per entry</span></div>
+  <div class="stat"><strong>1 Ref</strong><span>= 1 Free Ticket</span></div>
   <div class="stat"><strong>100%</strong><span>Secure & Verified</span></div>
 </div>
 
 <section id="how" class="section">
-  <h2>How it works</h2>
+  <h2>How "Refer & Get Free Ticket" Works</h2>
   <div class="cards">
-    <div class="card"><h3>01 · Choose Tickets</h3><p>Select how many lucky draw tickets (1 to 10) you want to secure.</p></div>
-    <div class="card"><h3>02 · Exact Payment</h3><p>Scan QR code, pay exact total amount via any UPI app safely.</p></div>
-    <div class="card"><h3>03 · Instant UTR</h3><p>Submit UTR & get your official verified unique ticket code instantly!</p></div>
+    <div class="card"><h3>01 · Book Ticket</h3><p>Get your unique Ticket Code instantly after your first booking.</p></div>
+    <div class="card"><h3>02 · Share Code</h3><p>Share your code with friends. Tell them to paste your code when they register.</p></div>
+    <div class="card"><h3>03 · Claim Free Ticket</h3><p>Every single friend who joins using your code gives you 1 FREE ticket instantly!</p></div>
   </div>
 </section>
 
@@ -95,27 +95,29 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
   <h2>Official Ticket Booking & Secure Payment</h2>
   <div class="panel">
     
-    <!-- STRICT RULES & TERMS BOX -->
     <div class="rules-box">
-      <b>⚠️ IMPORTANT CONTEST RULES & TERMS (PLEASE READ):</b>
+      <b>⚠️ IMPORTANT CONTEST RULES & TERMS:</b>
       <ul>
-        <li><b>Exact Payment Rule:</b> You must pay the exact amount corresponding to your selected tickets (e.g., 5 tickets = ₹105). <b>Mismatch in payment amount or underpayment will lead to immediate disqualification without refund.</b></li>
-        <li><b>Non-Refundable Policy:</b> Once payment is made and entry is submitted, ticket fees are strictly <b>non-refundable</b> under any circumstances.</li>
-        <li><b>Verification:</b> Every entry is manually/automatically verified via UTR. Fake UTR submissions will be blacklisted permanently.</li>
+        <li><b>Exact Payment Rule:</b> Match payment exactly with selected tickets (e.g., 3 tickets = ₹63). Underpayment leads to instant disqualification without refund.</li>
+        <li><b>Non-Refundable Policy:</b> Ticket contributions are strictly <b>non-refundable</b> under any circumstances.</li>
+        <li><b>Referral Bonus:</b> Put your friend's Ticket Code in the referral box below to give them a free ticket credit!</li>
       </ul>
     </div>
 
-    <div class="notice"><b>Secure Registration Form.</b> All fields below are <b>mandatory</b>. Enter correct details to receive your official ticket code and winner updates.</div>
+    <div class="notice"><b>Secure Registration Form.</b> All fields marked with * are mandatory.</div>
     
     <form id="regform">
       <label>Full Name *</label>
-      <input type="text" id="fname" required maxlength="80" placeholder="Enter your full name as per Govt ID">
+      <input type="text" id="fname" required maxlength="80" placeholder="Enter your full name">
       
       <label>Email Address *</label>
-      <input type="email" id="femail" required placeholder="you@example.com (For ticket code delivery)">
+      <input type="email" id="femail" required placeholder="you@example.com">
       
       <label>Mobile Number (WhatsApp Enabled) *</label>
-      <input type="tel" id="fphone" required pattern="[0-9]{10,15}" maxlength="15" placeholder="10-digit mobile number">
+      <input type="tel" id="fphone" required maxlength="15" placeholder="10-digit mobile number">
+
+      <label>Referral Code (Optional — If a friend referred you)</label>
+      <input type="text" id="freferredBy" placeholder="e.g. MOBI-123456 (Leave blank if none)">
       
       <label>Number of Tickets *</label>
       <select id="ticketCount" required>
@@ -138,7 +140,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
         </div>
 
         <div class="upi-qr-box">
-          <p style="margin:0 0 8px 0;color:var(--text);font-size:0.9rem;font-weight:600;">Scan & Pay Exact Amount via GPay / PhonePe / Paytm</p>
+          <p style="margin:0 0 8px 0;color:var(--text);font-size:0.9rem;font-weight:600;">Scan & Pay Exact Amount via UPI App</p>
           <div style="background:white;padding:10px;display:inline-block;border-radius:8px;">
             <img src="https://raw.githubusercontent.com/vishwakarmamihir15-afk/mobizone/main/qr.png" alt="UPI QR Code" width="150" height="150" id="qrCodeImg" style="display:block;">
           </div>
@@ -146,12 +148,12 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
         </div>
 
         <label style="margin-top:18px;">UPI Transaction ID / 12-Digit UTR Number *</label>
-        <input type="text" id="ftransaction" required placeholder="Enter 12-digit UTR reference number after payment">
+        <input type="text" id="ftransaction" required placeholder="Enter 12-digit UTR reference number">
       </div>
 
       <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;cursor:pointer;">
         <input type="checkbox" required style="width:auto;margin-top:3px"> 
-        <span style="font-size:0.9rem;color:var(--muted)">I confirm that I have paid the exact correct amount, read all contest rules, agree that fees are non-refundable, and understand that incorrect payment leads to disqualification.</span>
+        <span style="font-size:0.9rem;color:var(--muted)">I confirm exact payment, understand fees are non-refundable, and agree to contest rules.</span>
       </label>
 
       <p><button class="btn" type="submit" id="submitBtn" style="width:100%;margin-top:15px;font-size:1.05rem;">Verify & Submit Booking Entry</button></p>
@@ -173,7 +175,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
     
     <div id="adminDashboard" class="hidden">
       <h3 style="color:var(--accent2);margin-top:0">Welcome Admin (Mihir)</h3>
-      <p style="color:var(--muted)">All bookings are safely stored live in your Google Sheet database!</p>
+      <p style="color:var(--muted)">All bookings & referrals are safely stored live in your Google Sheet database!</p>
       <div style="margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap">
         <a href="https://docs.google.com/spreadsheets/d/19zLc5ZqhPzMWHBijPrfN0KrezImd-qW2L7HHPL1SKw77tifF9pYcMFp/edit" target="_blank" class="btn" style="background:var(--accent2);color:#0b1020;text-decoration:none;display:inline-block;line-height:normal;">📊 Open Google Sheet (View All Data)</a>
         <button class="btn secondary" onclick="logoutAdmin()">Logout</button>
@@ -181,13 +183,13 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 
       <hr style="border-color:var(--line);margin:20px 0">
 
-      <h4 style="color:var(--text);margin-bottom:10px">Manage Ticker Winners (Displayed on Website)</h4>
+      <h4 style="color:var(--text);margin-bottom:10px">Manage Ticker Winners</h4>
       <div style="background:#0b1020;padding:15px;border-radius:12px;border:1px solid var(--line);">
         <label>Winner Name</label>
         <input type="text" id="winName" placeholder="e.g. Rahul Sharma">
         <label>Amount / Prize Won</label>
         <input type="text" id="winAmount" placeholder="e.g. ₹50,000 / iPhone">
-        <button class="btn" style="margin-top:12px;width:100%" onclick="addWinner()">Add / Update Winner on Ticker</button>
+        <button class="btn" style="margin-top:12px;width:100%" onclick="addWinner()">Add Winner to Ticker</button>
       </div>
 
       <div style="margin-top:15px;">
@@ -202,8 +204,8 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
   <h2>Contest Rules & Transparency</h2>
   <div class="cards">
     <div class="card"><h3>1. Fair Selection</h3><p>Automated random draw guarantees 100% unbiased, transparent, and genuine winner selection.</p></div>
-    <div class="card"><h3>2. Strict Disqualification</h3><p>Any mismatch between selected tickets and UPI payment amount results in instant disqualification without refund.</p></div>
-    <div class="card"><h3>3. Non-Refundable</h3><p>Ticket contributions are final and non-refundable under any operational circumstances.</p></div>
+    <div class="card"><h3>2. Refer 1 Get 1 Free</h3><p>Every friend who registers using your unique ticket code earns you 1 FREE bonus ticket!</p></div>
+    <div class="card"><h3>3. Strict Policy</h3><p>Payment mismatches lead to instant disqualification. Contributions are non-refundable.</p></div>
   </div>
 </section>
 </main>
@@ -245,7 +247,7 @@ function updateTicker() {
 }
 updateTicker();
 
-// Booking Form Submit - Send to Google Sheet Globally with strict validation
+// Booking Form Submit - Send to Google Sheet with Referral Code
 document.getElementById('regform').addEventListener('submit', e => {
   e.preventDefault();
   const submitBtn = document.getElementById('submitBtn');
@@ -254,12 +256,13 @@ document.getElementById('regform').addEventListener('submit', e => {
   const name = document.getElementById('fname').value.trim();
   const email = document.getElementById('femail').value.trim();
   const phone = document.getElementById('fphone').value.trim();
+  const referredBy = document.getElementById('freferredBy').value.trim() || 'Direct';
   const tickets = ticketCountSelect.value;
   const totalAmount = tickets * 21;
   const utr = document.getElementById('ftransaction').value.trim();
   
   if(!name || !email || !phone || !utr) {
-    alert('Please fill out all mandatory fields correctly!');
+    alert('Please fill out all mandatory fields!');
     return;
   }
 
@@ -271,6 +274,7 @@ document.getElementById('regform').addEventListener('submit', e => {
     Name: name,
     Email: email,
     Phone: phone,
+    ReferredBy: referredBy,
     Tickets: tickets,
     Amount: totalAmount,
     UTR: utr,
@@ -286,12 +290,11 @@ document.getElementById('regform').addEventListener('submit', e => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formData)
   }).then(() => {
-    msgBox.innerHTML = `🎉 <b>Booking Confirmed & Recorded Successfully!</b><br>
+    msgBox.innerHTML = `🎉 <b>Booking Confirmed Successfully!</b><br>
     Name: <b>${name}</b><br>
     Tickets Booked: <b>${tickets} (₹${totalAmount})</b><br>
-    Transaction UTR: <b>${utr}</b><br>
-    Your Unique Ticket Code: <b style="color:var(--text);font-size:1.15rem;">${ticketCode}</b><br>
-    <small style="color:var(--muted)">Save this ticket code. Confirmation sent to database.</small>`;
+    Your Unique Ticket Code: <b style="color:var(--accent2);font-size:1.15rem;">${ticketCode}</b><br><br>
+    🎁 <b>Refer & Earn Offer:</b> Share your code <b>${ticketCode}</b> with your friends! Every 1 friend who uses your code gives you <b>1 Free Ticket</b>!`;
     msgBox.classList.remove('hidden');
     submitBtn.textContent = 'Booking Confirmed!';
     
@@ -299,9 +302,9 @@ document.getElementById('regform').addEventListener('submit', e => {
       document.getElementById('regform').reset();
       submitBtn.disabled = false;
       submitBtn.textContent = 'Verify & Submit Booking Entry';
-    }, 5000);
+    }, 6000);
   }).catch(err => {
-    alert('Error submitting booking. Please check connection and try again.');
+    alert('Error submitting booking. Please try again.');
     submitBtn.disabled = false;
     submitBtn.textContent = 'Verify & Submit Booking Entry';
   });
@@ -328,17 +331,16 @@ function loginAdmin() {
 
 function logoutAdmin() {
   document.getElementById('adminDashboard').classList.add('hidden');
-  document.getElementById('adminLoginBox').classList.remove('hidden');
+  document.getElementById('adminLoginBox').classList.add('hidden');
   document.getElementById('adminPass').value = '';
   document.getElementById('adminSection').classList.add('hidden');
 }
 
-// Winner Management Functions
 function addWinner() {
   const name = document.getElementById('winName').value.trim();
   const prize = document.getElementById('winAmount').value.trim();
   if(!name || !prize) {
-    alert('Please enter both name and prize/amount!');
+    alert('Please enter both name and prize!');
     return;
   }
   winners.push({ name, prize });
@@ -347,7 +349,7 @@ function addWinner() {
   document.getElementById('winAmount').value = '';
   updateTicker();
   renderWinnersList();
-  alert('Winner added successfully to the website ticker!');
+  alert('Winner added successfully!');
 }
 
 function deleteWinner(index) {
