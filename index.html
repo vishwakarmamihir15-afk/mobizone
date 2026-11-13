@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mobizone Challenge — Lucky Draw & Ticket Booking</title>
+<title>Mobizone Challenge — Official Lucky Draw & iPhone Giveaway</title>
 <!-- SheetJS Library for Admin Excel Export -->
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <style>
-:root{--bg:#0b1020;--panel:#121a2e;--line:#26324b;--text:#f4f7ff;--muted:#a8b4cb;--accent:#7c5cff;--accent2:#28d7a0}
+:root{--bg:#0b1020;--panel:#121a2e;--line:#26324b;--text:#f4f7ff;--muted:#a8b4cb;--accent:#7c5cff;--accent2:#28d7a0;--warn:#ff5c5c}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#24204d 0,transparent 35%),var(--bg);color:var(--text);font:16px system-ui,-apple-system,Segoe UI,sans-serif}
 header{display:flex;align-items:center;justify-content:space-between;padding:20px max(5%,calc((100% - 1100px)/2));border-bottom:1px solid #ffffff12;gap:20px}
 .logo{font-weight:900;font-size:1.2rem;letter-spacing:.4px}.logo span{color:var(--accent2)}nav{display:flex;gap:20px}nav a{color:var(--muted);text-decoration:none;font-size:.92rem;cursor:pointer}
 main{max-width:1100px;margin:auto;padding:44px 22px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.tag{display:inline-block;background:#7c5cff22;border:1px solid #7c5cff66;color:#c6baff;padding:7px 12px;border-radius:30px;font-size:.82rem}
+.tag{display:inline-block;background:#7c5cff22;border:1px solid #7c5cff66;color:#c6baff;padding:7px 14px;border-radius:30px;font-size:.85rem;font-weight:600}
 h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.02;margin:18px 0}h1 span{color:var(--accent2)}p{color:var(--muted);line-height:1.65}
-.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:750;cursor:pointer;background:var(--accent);color:white}.btn.secondary{background:#202b42;border:1px solid var(--line)}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn{border:0;border-radius:12px;padding:14px 20px;font-weight:750;cursor:pointer;background:var(--accent);color:white;transition:0.2s}.btn:hover{opacity:.9}
+.btn.secondary{background:#202b42;border:1px solid var(--line)}.btn:disabled{opacity:.5;cursor:not-allowed}
 .prize{border:1px solid #7c5cff55;border-radius:24px;background:linear-gradient(145deg,#201d42,#111a2e);padding:26px;text-align:center;box-shadow:0 20px 70px #0004}
 .phone{font-size:5rem;filter:drop-shadow(0 12px 22px #7c5cff66)}.prize h2{margin:8px 0}.prize small{color:var(--muted)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:35px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}.stat strong{display:block;font-size:1.4rem}.stat span{color:var(--muted);font-size:.85rem}
@@ -22,17 +23,20 @@ h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.02;margin:18px 0}h1 span{col
 /* Winner Ticker Banner Style */
 .winner-ticker{background:linear-gradient(90deg,#201d42,#121a2e,#201d42);border:1px solid #7c5cff55;border-radius:14px;padding:14px 20px;margin:30px 0;display:flex;align-items:center;gap:15px;overflow:hidden;box-shadow:0 10px 30px #0003}
 .ticker-badge{background:var(--accent2);color:#0b1020;font-weight:800;font-size:0.75rem;padding:5px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
-.ticker-content{font-size:0.95rem;color:var(--text);white-space:nowrap;animation:marquee 20s linear infinite}
+.ticker-content{font-size:0.95rem;color:var(--text);white-space:nowrap;animation:marquee 22s linear infinite}
 @keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
 .section{margin-top:48px}.section h2{font-size:1.7rem}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card h3{margin-top:4px}.card p{font-size:.92rem}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;max-width:700px}
-label{display:block;color:var(--muted);font-size:.9rem;margin:13px 0 6px}input:not([type=checkbox]),select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0b1020;color:white}
-.notice{background:#2a2417;border:1px solid #6b5524;color:#f6d88a;border-radius:12px;padding:13px;font-size:.9rem;line-height:1.5}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px;max-width:750px}
+label{display:block;color:var(--text);font-size:.9rem;font-weight:600;margin:15px 0 6px}input:not([type=checkbox]),select{width:100%;padding:13px;border-radius:10px;border:1px solid var(--line);background:#0b1020;color:white;font-size:1rem}
+input:focus,select:focus{border-color:var(--accent);outline:none}
+.notice{background:#242014;border:1px solid #6b5524;color:#f6d88a;border-radius:12px;padding:14px;font-size:.9rem;line-height:1.6}
+.rules-box{background:#1b1224;border:1px solid #7c5cff44;color:#d8cfff;border-radius:12px;padding:16px;font-size:.88rem;line-height:1.6;margin-bottom:20px}
+.rules-box ul{margin:8px 0 0 20px;padding:0}
 .hidden{display:none}
 .paybox{border:1px solid #7c5cff77;background:linear-gradient(145deg,#191c35,#10182a);border-radius:16px;padding:20px;margin-top:20px}
-.price{font-size:2rem;font-weight:850;color:var(--accent2)}
-.upi-qr-box{text-align:center;background:#0b1020;border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:15px;}
+.price{font-size:2.2rem;font-weight:850;color:var(--accent2)}
+.upi-qr-box{text-align:center;background:#0b1020;border:1px solid var(--line);padding:18px;border-radius:12px;margin-top:15px;}
 footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:auto}
 @media(max-width:750px){nav{display:none}.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.prize{order:-1}main{padding-top:28px}footer{flex-direction:column;gap:15px}}
 </style>
@@ -40,7 +44,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 <body>
 <header>
   <div class="logo">MOBI<span>ZONE</span> CHALLENGE</div>
-  <nav><a href="#how">How it works</a><a href="#register">Book Tickets</a><a href="#rules">Rules</a></nav>
+  <nav><a href="#how">How it works</a><a href="#register">Book Tickets</a><a href="#rules">Rules & Terms</a></nav>
   <button class="btn secondary" onclick="document.querySelector('#register').scrollIntoView({behavior:'smooth'})">Get Tickets</button>
 </header>
 <main>
@@ -53,45 +57,67 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 
 <section class="hero">
   <div>
-    <span class="tag">LUCKY DRAW • EXCLUSIVE REWARDS • FAIR PLAY</span>
+    <span class="tag">VERIFIED LUCKY DRAW • 100% FAIR PLAY</span>
     <h1>Secure your golden ticket.<br><span>Grab your chance to win!</span></h1>
-    <p>Welcome to Mobizone Challenge — your ultimate lucky draw platform. Book your tickets for just <strong>₹21 each</strong> and stand a chance to win amazing prizes like the brand new iPhone!</p>
+    
+    <!-- CUSTOM BOLD CATCHY LINE -->
+    <p style="font-size:1.15rem;color:var(--text);font-weight:700;background:linear-gradient(90deg,#7c5cff22,transparent);padding:10px 14px;border-left:4px solid var(--accent2);border-radius:4px;margin-bottom:20px;">
+      🔥 Multiple Tickets Make Your Chances More to Win! Grab Your Lucky Entries Before Slots Close!
+    </p>
+
+    <p>Welcome to Mobizone Challenge — India's trusted lucky draw platform. Book your tickets for just <strong>₹21 each</strong> and stand a chance to win the brand new iPhone!</p>
     <button class="btn" onclick="document.querySelector('#register').scrollIntoView({behavior:'smooth'})">Book your tickets now</button>
   </div>
   <div class="prize">
     <div class="phone">📱</div>
     <h2>Grand Prize: iPhone</h2>
     <div style="font-size:1.45rem;font-weight:850;color:var(--accent2)">Prize value up to ₹1,00,000</div>
-    <small>Official lucky draw eligibility & terms apply.</small>
+    <small>Official lucky draw eligibility & verified terms apply.</small>
   </div>
 </section>
 
 <div class="stats">
   <div class="stat"><strong>₹21</strong><span>Per ticket price</span></div>
   <div class="stat"><strong>10</strong><span>Max tickets per entry</span></div>
-  <div class="stat"><strong>100%</strong><span>Transparent Lucky Draw</span></div>
+  <div class="stat"><strong>100%</strong><span>Secure & Verified</span></div>
 </div>
 
 <section id="how" class="section">
   <h2>How it works</h2>
   <div class="cards">
-    <div class="card"><h3>01 · Choose Tickets</h3><p>Select how many lucky draw tickets (1 to 10) you want to book.</p></div>
-    <div class="card"><h3>02 · Secure Payment</h3><p>Scan the QR code to pay exact amount, then enter your UTR.</p></div>
-    <div class="card"><h3>03 · Win Big</h3><p>Receive your unique ticket code instantly confirmed!</p></div>
+    <div class="card"><h3>01 · Choose Tickets</h3><p>Select how many lucky draw tickets (1 to 10) you want to secure.</p></div>
+    <div class="card"><h3>02 · Exact Payment</h3><p>Scan QR code, pay exact total amount via any UPI app safely.</p></div>
+    <div class="card"><h3>03 · Instant UTR</h3><p>Submit UTR & get your official verified unique ticket code instantly!</p></div>
   </div>
 </section>
 
 <section id="register" class="section">
-  <h2>Ticket Booking & Secure Payment</h2>
+  <h2>Official Ticket Booking & Secure Payment</h2>
   <div class="panel">
-    <div class="notice"><b>Lucky Draw Registration.</b> Select your tickets, scan the QR code, enter your UTR, and submit your entry.</div>
+    
+    <!-- STRICT RULES & TERMS BOX -->
+    <div class="rules-box">
+      <b>⚠️ IMPORTANT CONTEST RULES & TERMS (PLEASE READ):</b>
+      <ul>
+        <li><b>Exact Payment Rule:</b> You must pay the exact amount corresponding to your selected tickets (e.g., 5 tickets = ₹105). <b>Mismatch in payment amount or underpayment will lead to immediate disqualification without refund.</b></li>
+        <li><b>Non-Refundable Policy:</b> Once payment is made and entry is submitted, ticket fees are strictly <b>non-refundable</b> under any circumstances.</li>
+        <li><b>Verification:</b> Every entry is manually/automatically verified via UTR. Fake UTR submissions will be blacklisted permanently.</li>
+      </ul>
+    </div>
+
+    <div class="notice"><b>Secure Registration Form.</b> All fields below are <b>mandatory</b>. Enter correct details to receive your official ticket code and winner updates.</div>
     
     <form id="regform">
-      <label>Full name</label><input type="text" id="fname" required maxlength="80" placeholder="Enter your full name">
-      <label>Email address</label><input type="email" id="femail" required placeholder="you@example.com">
-      <label>Mobile number</label><input type="tel" id="fphone" required maxlength="15" placeholder="Mobile number">
+      <label>Full Name *</label>
+      <input type="text" id="fname" required maxlength="80" placeholder="Enter your full name as per Govt ID">
       
-      <label>Number of tickets</label>
+      <label>Email Address *</label>
+      <input type="email" id="femail" required placeholder="you@example.com (For ticket code delivery)">
+      
+      <label>Mobile Number (WhatsApp Enabled) *</label>
+      <input type="tel" id="fphone" required pattern="[0-9]{10,15}" maxlength="15" placeholder="10-digit mobile number">
+      
+      <label>Number of Tickets *</label>
       <select id="ticketCount" required>
         <option value="1">1 Ticket (₹21)</option>
         <option value="2">2 Tickets (₹42)</option>
@@ -107,27 +133,29 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
       
       <div class="paybox">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-          <div><b>Total amount</b><p style="margin:5px 0 0" id="ticketSummary">1 Ticket selected</p></div>
+          <div><b>Total Amount Payable</b><p style="margin:5px 0 0;color:var(--muted)" id="ticketSummary">1 Ticket selected</p></div>
           <div class="price" id="totalPrice">₹21</div>
         </div>
 
         <div class="upi-qr-box">
-          <p style="margin:0 0 8px 0;color:var(--text);font-size:0.9rem;">Scan & Pay via any UPI App</p>
+          <p style="margin:0 0 8px 0;color:var(--text);font-size:0.9rem;font-weight:600;">Scan & Pay Exact Amount via GPay / PhonePe / Paytm</p>
           <div style="background:white;padding:10px;display:inline-block;border-radius:8px;">
-            <!-- 100% RELIABLE RAW GITHUB IMAGE LINK -->
             <img src="https://raw.githubusercontent.com/vishwakarmamihir15-afk/mobizone/main/qr.png" alt="UPI QR Code" width="150" height="150" id="qrCodeImg" style="display:block;">
           </div>
+          <p style="margin:8px 0 0 0;font-size:0.82rem;color:var(--accent2)">🔒 Verified Merchant QR Code</p>
         </div>
 
-        <label style="margin-top:15px;">Enter UPI Transaction ID / UTR (After payment)</label>
-        <input type="text" id="ftransaction" required placeholder="e.g. 4032xxxxxxxx or UPI Ref No">
+        <label style="margin-top:18px;">UPI Transaction ID / 12-Digit UTR Number *</label>
+        <input type="text" id="ftransaction" required placeholder="Enter 12-digit UTR reference number after payment">
       </div>
 
-      <label style="display:flex;gap:9px;align-items:flex-start;margin-top:15px;">
-        <input type="checkbox" required style="width:auto;margin-top:5px"> I confirm that I have made the payment and agree to the lucky draw terms.
+      <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;cursor:pointer;">
+        <input type="checkbox" required style="width:auto;margin-top:3px"> 
+        <span style="font-size:0.9rem;color:var(--muted)">I confirm that I have paid the exact correct amount, read all contest rules, agree that fees are non-refundable, and understand that incorrect payment leads to disqualification.</span>
       </label>
-      <p><button class="btn" type="submit" id="submitBtn" style="width:100%;margin-top:10px;">Verify & Submit Booking</button></p>
-      <p id="formmsg" class="hidden" aria-live="polite" style="background:#14352e;border:1px solid var(--accent2);padding:14px;border-radius:10px;margin-top:10px;color:var(--accent2);line-height:1.6;"></p>
+
+      <p><button class="btn" type="submit" id="submitBtn" style="width:100%;margin-top:15px;font-size:1.05rem;">Verify & Submit Booking Entry</button></p>
+      <p id="formmsg" class="hidden" aria-live="polite" style="background:#14352e;border:1px solid var(--accent2);padding:16px;border-radius:10px;margin-top:12px;color:var(--accent2);line-height:1.6;"></p>
     </form>
   </div>
 </section>
@@ -140,7 +168,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
       <p style="color:var(--text)">Enter admin password to access control panel:</p>
       <input type="password" id="adminPass" placeholder="Enter admin password">
       <button class="btn" style="margin-top:12px;background:var(--accent2);color:#0b1020;" onclick="loginAdmin()">Login to Admin Panel</button>
-      <p id="adminError" class="hidden" style="color:#ff5c5c;margin-top:8px">Incorrect password!</p>
+      <p id="adminError" class="hidden" style="color:var(--warn);margin-top:8px">Incorrect password!</p>
     </div>
     
     <div id="adminDashboard" class="hidden">
@@ -171,17 +199,17 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 </section>
 
 <section id="rules" class="section">
-  <h2>Rules & transparency</h2>
+  <h2>Contest Rules & Transparency</h2>
   <div class="cards">
-    <div class="card"><h3>Official terms</h3><p>Clear guidelines on lucky draw dates, eligibility, and transparent winner selection.</p></div>
-    <div class="card"><h3>Privacy</h3><p>Your contact details are securely handled strictly for ticket confirmation and winner announcements.</p></div>
-    <div class="card"><h3>Fair draw</h3><p>Automated random selection ensures completely unbiased and genuine winners.</p></div>
+    <div class="card"><h3>1. Fair Selection</h3><p>Automated random draw guarantees 100% unbiased, transparent, and genuine winner selection.</p></div>
+    <div class="card"><h3>2. Strict Disqualification</h3><p>Any mismatch between selected tickets and UPI payment amount results in instant disqualification without refund.</p></div>
+    <div class="card"><h3>3. Non-Refundable</h3><p>Ticket contributions are final and non-refundable under any operational circumstances.</p></div>
   </div>
 </section>
 </main>
 
 <footer>
-  <span>Mobizone Challenge · Lucky Draw Platform · All rights reserved.</span>
+  <span>Mobizone Challenge · Official Lucky Draw Platform · All rights reserved.</span>
   <a onclick="toggleAdminPanel()" style="color:var(--muted);text-decoration:underline;font-size:.8rem;cursor:pointer">Admin Login</a>
 </footer>
 
@@ -217,18 +245,24 @@ function updateTicker() {
 }
 updateTicker();
 
-// Booking Form Submit - Send to Google Sheet Globally
+// Booking Form Submit - Send to Google Sheet Globally with strict validation
 document.getElementById('regform').addEventListener('submit', e => {
   e.preventDefault();
   const submitBtn = document.getElementById('submitBtn');
   const msgBox = document.getElementById('formmsg');
   
-  const name = document.getElementById('fname').value;
-  const email = document.getElementById('femail').value;
-  const phone = document.getElementById('fphone').value;
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
   const tickets = ticketCountSelect.value;
   const totalAmount = tickets * 21;
-  const utr = document.getElementById('ftransaction').value;
+  const utr = document.getElementById('ftransaction').value.trim();
+  
+  if(!name || !email || !phone || !utr) {
+    alert('Please fill out all mandatory fields correctly!');
+    return;
+  }
+
   const ticketCode = 'MOBI-' + Math.floor(100000 + Math.random() * 900000);
   const dateStr = new Date().toLocaleString();
 
@@ -244,7 +278,7 @@ document.getElementById('regform').addEventListener('submit', e => {
   };
 
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Submitting entry...';
+  submitBtn.textContent = 'Verifying & Submitting Entry...';
 
   fetch(SCRIPT_URL, {
     method: 'POST',
@@ -252,24 +286,24 @@ document.getElementById('regform').addEventListener('submit', e => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formData)
   }).then(() => {
-    msgBox.innerHTML = `🎉 <b>Booking Confirmed Successfully!</b><br>
+    msgBox.innerHTML = `🎉 <b>Booking Confirmed & Recorded Successfully!</b><br>
     Name: <b>${name}</b><br>
     Tickets Booked: <b>${tickets} (₹${totalAmount})</b><br>
     Transaction UTR: <b>${utr}</b><br>
-    Your Unique Ticket Code: <b style="color:var(--text);font-size:1.1rem;">${ticketCode}</b><br>
-    <small style="color:var(--muted)">Your entry has been securely recorded in the database.</small>`;
+    Your Unique Ticket Code: <b style="color:var(--text);font-size:1.15rem;">${ticketCode}</b><br>
+    <small style="color:var(--muted)">Save this ticket code. Confirmation sent to database.</small>`;
     msgBox.classList.remove('hidden');
     submitBtn.textContent = 'Booking Confirmed!';
     
     setTimeout(() => {
       document.getElementById('regform').reset();
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Verify & Submit Booking';
-    }, 4000);
+      submitBtn.textContent = 'Verify & Submit Booking Entry';
+    }, 5000);
   }).catch(err => {
-    alert('Error submitting booking. Please try again.');
+    alert('Error submitting booking. Please check connection and try again.');
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Verify & Submit Booking';
+    submitBtn.textContent = 'Verify & Submit Booking Entry';
   });
 });
 
