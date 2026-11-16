@@ -57,16 +57,16 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 
 <section class="hero">
   <div>
-    <span class="tag">VERIFIED LUCKY DRAW • 1 REF = 1 FREE TICKET</span>
+    <span class="tag">VERIFIED LUCKY DRAW • MEGA BUNDLE PACKS LIVE</span>
     <h1>Secure your golden ticket.<br><span>Grab your chance to win!</span></h1>
     
-    <!-- HIGH-CONVERSION REFERRAL BANNER -->
+    <!-- HIGH-CONVERSION BUNDLE & REFERRAL HEADLINE -->
     <p style="font-size:1.15rem;color:var(--text);font-weight:700;background:linear-gradient(90deg,#7c5cff33,transparent);padding:12px 16px;border-left:4px solid var(--accent2);border-radius:4px;margin-bottom:20px;line-height:1.5;">
-      🚀 <b>MEGA OFFER:</b> Refer 1 Friend = Get 1 Ticket Absolutely FREE! Share your unique ticket code with friends and stack unlimited free entries to double your winning chances!
+      🚀 <b>MEGA BUNDLES LIVE:</b> Sirf ₹21 mein jeeto ₹1,00,000 ka iPhone! Chota Inam, Badi Jeet — Abhi Bundle Pack chunein (5 ya 12 Tickets) aur apne winning chances 5x badhayein! + Refer 1 Friend = Get 1 Ticket Free!
     </p>
 
-    <p>Welcome to Mobizone Challenge — India's trusted lucky draw platform. Book your tickets for just <strong>₹21 each</strong> and stand a chance to win the brand new iPhone!</p>
-    <button class="btn" onclick="document.querySelector('#register').scrollIntoView({behavior:'smooth'})">Book your tickets now</button>
+    <p>Welcome to Mobizone Challenge — India's trusted lucky draw platform. Choose your bundle pack below and stand a chance to win the brand new iPhone!</p>
+    <button class="btn" onclick="document.querySelector('#register').scrollIntoView({behavior:'smooth'})">Book your bundle now</button>
   </div>
   <div class="prize">
     <div class="phone">📱</div>
@@ -77,17 +77,17 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 </section>
 
 <div class="stats">
-  <div class="stat"><strong>₹21</strong><span>Per ticket price</span></div>
-  <div class="stat"><strong>1 Ref</strong><span>= 1 Free Ticket</span></div>
-  <div class="stat"><strong>100%</strong><span>Secure & Verified</span></div>
+  <div class="stat"><strong>₹21</strong><span>Single entry</span></div>
+  <div class="stat"><strong>5 Tix / ₹99</strong><span>Best value pack</span></div>
+  <div class="stat"><strong>12 Tix / ₹199</strong><span>Mega winner pack</span></div>
 </div>
 
 <section id="how" class="section">
-  <h2>How "Refer & Get Free Ticket" Works</h2>
+  <h2>Why Choose Bundle Packs?</h2>
   <div class="cards">
-    <div class="card"><h3>01 · Book Ticket</h3><p>Get your unique Ticket Code instantly after your first booking.</p></div>
-    <div class="card"><h3>02 · Share Code</h3><p>Share your code with friends. Tell them to paste your code when they register.</p></div>
-    <div class="card"><h3>03 · Claim Free Ticket</h3><p>Every single friend who joins using your code gives you 1 FREE ticket instantly!</p></div>
+    <div class="card"><h3>01 · Smart Savings</h3><p>Get extra tickets at discounted bundle pricing (5 for ₹99 or 12 for ₹199).</p></div>
+    <div class="card"><h3>02 · Higher Odds</h3><p>More tickets in a single go mean significantly higher winning chances for the iPhone.</p></div>
+    <div class="card"><h3>03 · Refer & Earn</h3><p>Refer 1 friend using your unique ticket code and earn 1 free ticket instantly!</p></div>
   </div>
 </section>
 
@@ -98,13 +98,13 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
     <div class="rules-box">
       <b>⚠️ IMPORTANT CONTEST RULES & TERMS:</b>
       <ul>
-        <li><b>Exact Payment Rule:</b> Match payment exactly with selected tickets (e.g., 3 tickets = ₹63). Underpayment leads to instant disqualification without refund.</li>
+        <li><b>Exact Payment Rule:</b> Match payment exactly with selected bundle price (e.g., Trial = ₹21, Popular Deal = ₹99, Mega Pack = ₹199). Mismatch leads to disqualification without refund.</li>
         <li><b>Non-Refundable Policy:</b> Ticket contributions are strictly <b>non-refundable</b> under any circumstances.</li>
-        <li><b>Referral Bonus:</b> Put your friend's Ticket Code in the referral box below to give them a free ticket credit!</li>
+        <li><b>Referral Bonus:</b> Put your friend's Ticket Code in the referral box below to credit them!</li>
       </ul>
     </div>
 
-    <div class="notice"><b>Secure Registration Form.</b> All fields marked with * are mandatory.</div>
+    <div class="notice"><b>Secure Registration Form.</b> Select your preferred Bundle Pack below. All fields marked with * are mandatory.</div>
     
     <form id="regform">
       <label>Full Name *</label>
@@ -119,24 +119,17 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
       <label>Referral Code (Optional — If a friend referred you)</label>
       <input type="text" id="freferredBy" placeholder="e.g. MOBI-123456 (Leave blank if none)">
       
-      <label>Number of Tickets *</label>
-      <select id="ticketCount" required>
-        <option value="1">1 Ticket (₹21)</option>
-        <option value="2">2 Tickets (₹42)</option>
-        <option value="3">3 Tickets (₹63)</option>
-        <option value="4">4 Tickets (₹84)</option>
-        <option value="5">5 Tickets (₹105)</option>
-        <option value="6">6 Tickets (₹126)</option>
-        <option value="7">7 Tickets (₹147)</option>
-        <option value="8">8 Tickets (₹168)</option>
-        <option value="9">9 Tickets (₹189)</option>
-        <option value="10">10 Tickets (₹210)</option>
+      <label>Select Ticket Bundle / Pack *</label>
+      <select id="ticketBundle" required>
+        <option value="1">🎟️ 1 Ticket (Trial Pack) — ₹21</option>
+        <option value="5" selected>🔥 5 Tickets (Popular Deal) — ₹99 (Save ₹6 & Best Winning Chance)</option>
+        <option value="12">⭐ 12 Tickets (Mega Winner Pack) — ₹199 (Maximum Chances to Win iPhone!)</option>
       </select>
       
       <div class="paybox">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-          <div><b>Total Amount Payable</b><p style="margin:5px 0 0;color:var(--muted)" id="ticketSummary">1 Ticket selected</p></div>
-          <div class="price" id="totalPrice">₹21</div>
+          <div><b>Total Amount Payable</b><p style="margin:5px 0 0;color:var(--muted)" id="ticketSummary">5 Tickets selected (Popular Deal)</p></div>
+          <div class="price" id="totalPrice">₹99</div>
         </div>
 
         <div class="upi-qr-box">
@@ -153,7 +146,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 
       <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;cursor:pointer;">
         <input type="checkbox" required style="width:auto;margin-top:3px"> 
-        <span style="font-size:0.9rem;color:var(--muted)">I confirm exact payment, understand fees are non-refundable, and agree to contest rules.</span>
+        <span style="font-size:0.9rem;color:var(--muted)">I confirm exact payment matching the selected bundle, understand fees are non-refundable, and agree to contest rules.</span>
       </label>
 
       <p><button class="btn" type="submit" id="submitBtn" style="width:100%;margin-top:15px;font-size:1.05rem;">Verify & Submit Booking Entry</button></p>
@@ -175,7 +168,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
     
     <div id="adminDashboard" class="hidden">
       <h3 style="color:var(--accent2);margin-top:0">Welcome Admin (Mihir)</h3>
-      <p style="color:var(--muted)">All bookings & referrals are safely stored live in your Google Sheet database!</p>
+      <p style="color:var(--muted)">All bundle bookings & referrals are safely stored live in your Google Sheet database!</p>
       <div style="margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap">
         <a href="https://docs.google.com/spreadsheets/d/19zLc5ZqhPzMWHBijPrfN0KrezImd-qW2L7HHPL1SKw77tifF9pYcMFp/edit" target="_blank" class="btn" style="background:var(--accent2);color:#0b1020;text-decoration:none;display:inline-block;line-height:normal;">📊 Open Google Sheet (View All Data)</a>
         <button class="btn secondary" onclick="logoutAdmin()">Logout</button>
@@ -205,7 +198,7 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
   <div class="cards">
     <div class="card"><h3>1. Fair Selection</h3><p>Automated random draw guarantees 100% unbiased, transparent, and genuine winner selection.</p></div>
     <div class="card"><h3>2. Refer 1 Get 1 Free</h3><p>Every friend who registers using your unique ticket code earns you 1 FREE bonus ticket!</p></div>
-    <div class="card"><h3>3. Strict Policy</h3><p>Payment mismatches lead to instant disqualification. Contributions are non-refundable.</p></div>
+    <div class="card"><h3>3. Strict Policy</h3><p>Payment mismatches with bundle pricing lead to instant disqualification. Contributions are non-refundable.</p></div>
   </div>
 </section>
 </main>
@@ -216,17 +209,25 @@ footer{border-top:1px solid #ffffff12;padding:25px;text-align:center;color:var(-
 </footer>
 
 <script>
-const ticketCountSelect = document.getElementById('ticketCount');
+const ticketBundleSelect = document.getElementById('ticketBundle');
 const totalPriceEl = document.getElementById('totalPrice');
 const ticketSummaryEl = document.getElementById('ticketSummary');
 
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzi2yPOQHmur4mab9LnBStDZZ6ds8VcGEMrlYiP8k9iqgKsuKoVUM6cSsVm6wPRMS_m/exec';
 
-ticketCountSelect.addEventListener('change', () => {
-  const count = parseInt(ticketCountSelect.value);
-  const total = count * 21;
-  totalPriceEl.textContent = '₹' + total;
-  ticketSummaryEl.textContent = count + (count === 1 ? ' Ticket selected' : ' Tickets selected');
+// Bundle Pricing Logic
+ticketBundleSelect.addEventListener('change', () => {
+  const val = ticketBundleSelect.value;
+  if(val === '1') {
+    totalPriceEl.textContent = '₹21';
+    ticketSummaryEl.textContent = '1 Ticket selected (Trial Pack)';
+  } else if(val === '5') {
+    totalPriceEl.textContent = '₹99';
+    ticketSummaryEl.textContent = '5 Tickets selected (Popular Deal - Best Value)';
+  } else if(val === '12') {
+    totalPriceEl.textContent = '₹199';
+    ticketSummaryEl.textContent = '12 Tickets selected (Mega Winner Pack)';
+  }
 });
 
 // Load Winners from localStorage
@@ -247,7 +248,7 @@ function updateTicker() {
 }
 updateTicker();
 
-// Booking Form Submit - Send to Google Sheet with Referral Code
+// Booking Form Submit - Send Bundle Data to Google Sheet
 document.getElementById('regform').addEventListener('submit', e => {
   e.preventDefault();
   const submitBtn = document.getElementById('submitBtn');
@@ -257,8 +258,12 @@ document.getElementById('regform').addEventListener('submit', e => {
   const email = document.getElementById('femail').value.trim();
   const phone = document.getElementById('fphone').value.trim();
   const referredBy = document.getElementById('freferredBy').value.trim() || 'Direct';
-  const tickets = ticketCountSelect.value;
-  const totalAmount = tickets * 21;
+  const bundleVal = ticketBundleSelect.value;
+  
+  let ticketsCount = bundleVal;
+  let totalAmount = bundleVal === '1' ? 21 : (bundleVal === '5' ? 99 : 199);
+  let bundleName = bundleVal === '1' ? '1 Ticket (Trial)' : (bundleVal === '5' ? '5 Tickets Pack' : '12 Tickets Mega Pack');
+
   const utr = document.getElementById('ftransaction').value.trim();
   
   if(!name || !email || !phone || !utr) {
@@ -275,14 +280,14 @@ document.getElementById('regform').addEventListener('submit', e => {
     Email: email,
     Phone: phone,
     ReferredBy: referredBy,
-    Tickets: tickets,
+    Tickets: ticketsCount + ' (' + bundleName + ')',
     Amount: totalAmount,
     UTR: utr,
     TicketCode: ticketCode
   };
 
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Verifying & Submitting Entry...';
+  submitBtn.textContent = 'Verifying & Submitting Bundle...';
 
   fetch(SCRIPT_URL, {
     method: 'POST',
@@ -290,9 +295,9 @@ document.getElementById('regform').addEventListener('submit', e => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formData)
   }).then(() => {
-    msgBox.innerHTML = `🎉 <b>Booking Confirmed Successfully!</b><br>
+    msgBox.innerHTML = `🎉 <b>Bundle Booking Confirmed Successfully!</b><br>
     Name: <b>${name}</b><br>
-    Tickets Booked: <b>${tickets} (₹${totalAmount})</b><br>
+    Pack Selected: <b>${bundleName} (₹${totalAmount})</b><br>
     Your Unique Ticket Code: <b style="color:var(--accent2);font-size:1.15rem;">${ticketCode}</b><br><br>
     🎁 <b>Refer & Earn Offer:</b> Share your code <b>${ticketCode}</b> with your friends! Every 1 friend who uses your code gives you <b>1 Free Ticket</b>!`;
     msgBox.classList.remove('hidden');
@@ -325,7 +330,7 @@ function loginAdmin() {
     document.getElementById('adminError').classList.add('hidden');
     renderWinnersList();
   } else {
-    document.getElementById('adminError').classList.remove('hidden');
+    document.getElementById('adminError').classList.add('hidden');
   }
 }
 
